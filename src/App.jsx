@@ -1,8 +1,9 @@
-import './App.css'
+import React, { Component } from 'react';
+import FormStep1 from './pages/FormStep1';
 
 function App() {
   return (
-   <h1>Hello</h1> 
+   <FormStep1/>
   )
 }
 
