@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import FormStep1 from './pages/FormStep1';
+import FormStep1 from './pages/FormStep1/index';
 
 function App() {
   return (
