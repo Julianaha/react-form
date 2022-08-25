@@ -1,14 +1,17 @@
+import { useState } from "react";
 import Navbar from "./components/Header";
 import "./style/App.css";
 import { GiHamburgerMenu } from "@react-icons/all-files/gi/GiHamburgerMenu";
 
 function App() {
+  const [showNav, setShowNav] = useState(false);
+
   return (
     <div className="App">
       <header>
-        <GiHamburgerMenu />
+        <GiHamburgerMenu onClick={() => setShowNav(!showNav)} />
       </header>
-      <Navbar />
+      <Navbar show={showNav} />
     </div>
   );
 }

@@ -1,9 +1,9 @@
-import styles from "./Header.module.css";
+import "./Header.css";
 import logo from "../../assets/logo.png";
 
-const Navbar = () => {
+const Navbar = ({show}) => {
   return (
-    <div className={styles.sidenav}>
+    <div className={show ? 'sidenav && active' : 'sidenav'}>
       <img src={logo} width="80px" alt="logo" />
       <ul>
         <li>
