@@ -14,3 +14,10 @@ header svg {
   font-size: 40px;
   color: #3d5a80;
 }
+
+.main{
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
