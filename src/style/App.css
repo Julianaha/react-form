@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  padding: 30px;
+  background: #99c2d9;
+  height: 40px;
+}
+
+header svg {
+  font-size: 40px;
+  color: #3d5a80;
+}

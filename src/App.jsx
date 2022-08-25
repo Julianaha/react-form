@@ -1,15 +1,16 @@
-import React, { Component } from 'react';
-import FormStep1 from './pages/FormStep1/index';
-import FormStep2 from './pages/FormStep2/index';
-import FormStep3 from './pages/FormStep3/index';
+import Navbar from "./components/Header";
+import "./style/App.css";
+import { GiHamburgerMenu } from "@react-icons/all-files/gi/GiHamburgerMenu";
 
 function App() {
-  return (<>
-   <FormStep1/>
-   <FormStep2/>
-   <FormStep3/>
-  </>
-  )
+  return (
+    <div className="App">
+      <header>
+        <GiHamburgerMenu />
+      </header>
+      <Navbar />
+    </div>
+  );
 }
 
-export default App
+export default App;
