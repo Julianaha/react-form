@@ -13,11 +13,14 @@ header {
 header svg {
   font-size: 40px;
   color: #3d5a80;
+  cursor: pointer;
 }
 
-.main{
-  height: 90vh;
+.main {
+  height: 80vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; 
+  width: 90%; 
+  margin: 0 auto;
 }
