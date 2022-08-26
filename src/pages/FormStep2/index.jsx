@@ -38,6 +38,9 @@ export default function FormStep2() {
 
         <div className="">
           <button type="submit" className="">
+            Voltar
+          </button>
+          <button type="submit" className="">
             Próximo
           </button>
         </div>
