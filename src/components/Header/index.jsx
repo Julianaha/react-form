@@ -1,17 +1,23 @@
 import "./Header.css";
 import logo from "../../assets/logo.png";
-import { Link } from "react-router-dom";
+import { MdPersonAdd, MdGroups } from "react-icons/md";
 
-const Navbar = ({show}) => {
+const Navbar = ({ show }) => {
   return (
-    <div className={show ? 'sidenav && active' : 'sidenav'}>
+    <div className={show ? "sidenav && active" : "sidenav"}>
       <img src={logo} width="80px" alt="logo" />
       <ul>
         <li>
-          <Link to="/clientes">Clientes</Link>
+          <a href="/Clientes">
+            <MdGroups width="80px"/>
+            Clientes
+          </a>
         </li>
         <li>
-          <Link to="/cadastro">Cadastro</Link>
+          <a href="/cadastro">
+            <MdPersonAdd />
+            Cadastro
+          </a>
         </li>
       </ul>
     </div>
