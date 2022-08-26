@@ -1,6 +1,14 @@
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./FormStep1.module.css";
 
 export default function FormStep1() {
+  const navigateTo = useNavigate();
+
+  const handleNextStep = () => {
+    navigateTo("/step2");
+  };
+
   return (
     <form className={styles.form1}>
       <fieldset className={styles.field1}>
@@ -45,7 +53,7 @@ export default function FormStep1() {
         </div>
 
         <div className="">
-          <button type="submit" className="">
+          <button type="submit" className="" onClick={handleNextStep}>
             Próximo
           </button>
         </div>
