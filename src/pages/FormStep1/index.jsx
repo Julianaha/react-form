@@ -1,22 +1,55 @@
+import styles from "./FormStep1.module.css";
+
 export default function FormStep1() {
   return (
-    <form>
-      <label>
-        Nome:
-        <input type="text" name="name" placeholder="Name" />
-      </label>
-      <label>
-        Sobrenome
-        <input type="text" name="surname" placeholder="Surname" />
-      </label>
-      <label>
-        Email
-        <input type="text" name="email" placeholder="Email" />
-      </label>
-      <label>
-        Telefone:
-        <input type="text" name="phone" placeholder="Phone" />
-      </label>
+    <form className={styles.form1}>
+      <fieldset className={styles.field1}>
+        <legend>Cadastro</legend>
+        <div class={styles.container}>
+          <div className={styles.formGroup}>
+            <label htmlFor="aligned-name">Nome:</label>
+            <input
+              type="text"
+              id="aligned-name"
+              className={styles.input}
+              placeholder="Digite seu nome"
+            />
+          </div>
+          <div className={styles.formGroup}>
+            <label htmlFor="aligned-lastname">Sobrenome:</label>
+            <input
+              type="text"
+              id="aligned-lastname"
+              className={styles.input}
+              placeholder="Digite seu sobrenome"
+            />
+          </div>
+          <div className={styles.formGroup}>
+            <label htmlFor="aligned-email">E-mail:</label>
+            <input
+              type="email"
+              id="aligned-email"
+              className={styles.input}
+              placeholder="exemplo@email.com"
+            />
+          </div>
+          <div className={styles.formGroup}>
+            <label htmlFor="aligned-phone">Telefone:</label>
+            <input
+              type="tel"
+              id="aligned-phone"
+              className={styles.input}
+              placeholder="00 12343-2345"
+            />
+          </div>
+        </div>
+
+        <div className="">
+          <button type="submit" className="">
+            Próximo
+          </button>
+        </div>
+      </fieldset>
     </form>
   );
 }
