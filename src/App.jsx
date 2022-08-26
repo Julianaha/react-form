@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route} from "react-router-dom"
 import Navbar from "./components/Header";
 import FormStep1 from "./pages/FormStep1";
 import FormStep2 from "./pages/FormStep2";
+import FormStep3 from "./pages/FormStep3";
 import { GiHamburgerMenu } from "@react-icons/all-files/gi/GiHamburgerMenu";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Routes>
             <Route path="/" expect element={<FormStep1 />} />
             <Route path="/FormStep2" element={<FormStep2 />} />
+            <Route path="/FormStep3" element={<FormStep3 />} />
           </Routes>
         </div>
       </BrowserRouter>
