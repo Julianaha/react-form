@@ -1,13 +1,22 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useForm } from "../../contexts/FormContext";
 import styles from "./FormStep1.module.css";
 
 export default function FormStep1() {
   const navigateTo = useNavigate();
+  const { state, dispatch } = useForm();
 
   const handleNextStep = () => {
     navigateTo("/step2");
   };
+
+  // const handleNameChange = (e) => {
+  //   dispatch({
+  //     type: FormActions.setName,
+  //     payload: e.target.value,
+  //   });
+  // };
 
   return (
     <form className={styles.form1}>
@@ -20,6 +29,8 @@ export default function FormStep1() {
               type="text"
               id="aligned-name"
               className={styles.input}
+              onChange={handleNameChange}
+            value={state.name}
               placeholder="Digite seu nome"
             />
           </div>
@@ -53,7 +64,7 @@ export default function FormStep1() {
         </div>
 
         <div className="">
-          <button type="submit" className="" onClick={handleNextStep}>
+          <button type="submit" className="" >
             Próximo
           </button>
         </div>
