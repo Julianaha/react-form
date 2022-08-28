@@ -4,18 +4,6 @@ body {
   box-sizing: border-box;
 }
 
-header {
-  padding: 30px;
-  background: #99c2d9;
-  height: 40px;
-}
-
-header svg {
-  font-size: 40px;
-  color: #3d5a80;
-  cursor: pointer;
-}
-
 .main {
   height: 80vh;
   display: flex;
