@@ -1,40 +1,11 @@
-.sidenav {
-  width: 240px;
-  background-color: #99c2d9;
-  position: absolute;
-  height: 95vh;
-  padding: 0 30px;
-  left: -100%; 
-  transition: all 0.3s;
+header {
+  padding: 30px;
+  background: #99c2d9;
+  height: 40px;
 }
 
-.sidenav.active {
-  left: 0;
-}
-
-ul {
-  padding: 0;
-}
-
-ul li {
-  list-style-type: none;
-  margin: 10px 0;
-}
-
-ul li a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 16px;
-  display: block;
-  padding: 10px 15px;
-  border-radius: 6px;
-}
-
-ul li a svg {
-  margin-right: 10px;
-}
-
-ul li a:hover,
-ul li a:active {
-  background: aqua;
+header svg {
+  font-size: 40px;
+  color: #3d5a80;
+  cursor: pointer;
 }
