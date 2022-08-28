@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { UserProvider, UserReducer, initialData } from "./contexts/FormContext";
+import { ClientProvider } from "./contexts/ClientsContext";
 import { useReducer } from "react";
 import FormStep1 from "./pages/FormStep1";
 import FormStep2 from "./pages/FormStep2";
@@ -8,10 +9,11 @@ import Clientes from "./pages/Clientes/Clientes";
 
 export const Router = () => {
   const dispatch = useReducer(UserReducer, initialData);
+
   return (
     <BrowserRouter>
       <UserProvider key="UserProvider" value={dispatch}>
-        <ClientProvider key="UserProvider" value={dispatch}>
+        <ClientProvider key="ClientProvider" value={dispatch}>
           <Routes>
             <Route path="/" expect element={<FormStep1 />} />
             <Route path="/step2" element={<FormStep2 />} />
@@ -20,11 +22,11 @@ export const Router = () => {
           </Routes>
         </ClientProvider>
       </UserProvider>
-      <Routes>
-        <ClientProvider>
+      <ClientProvider key={ClientProvider} value={dispatch}>
+        <Routes>
           <Route path="/clientes" element={<Clientes />} />
-        </ClientProvider>
-      </Routes>
+        </Routes>
+      </ClientProvider>
     </BrowserRouter>
   );
 };
