@@ -14,7 +14,7 @@ const Navbar = ({ show }) => {
           </a>
         </li>
         <li>
-          <a href="/cadastro">
+          <a href="/">
             <MdPersonAdd />
             Cadastro
           </a>
