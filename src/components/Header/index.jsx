@@ -1,27 +1,18 @@
-import "./Header.css";
-import logo from "../../assets/logo.png";
-import { MdPersonAdd, MdGroups } from "react-icons/md";
+import Navbar from "../Navbar";
+import "./Header.css"
+import { useState } from "react";
+import { GiHamburgerMenu } from "@react-icons/all-files/gi/GiHamburgerMenu";
 
-const Navbar = ({ show }) => {
+const Header = () => {
+  const [showNav, setShowNav] = useState(false);
   return (
-    <div className={show ? "sidenav && active" : "sidenav"}>
-      <img src={logo} width="80px" alt="logo" />
-      <ul>
-        <li>
-          <a href="/Clientes">
-            <MdGroups width="80px"/>
-            Clientes
-          </a>
-        </li>
-        <li>
-          <a href="/">
-            <MdPersonAdd />
-            Cadastro
-          </a>
-        </li>
-      </ul>
-    </div>
+    <>
+      <header>
+        <GiHamburgerMenu onClick={() => setShowNav(!showNav)} />
+      </header>
+      <Navbar show={showNav} />
+    </>
   );
 };
 
-export default Navbar;
+export default Header;
