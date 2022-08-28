@@ -11,14 +11,19 @@ export const Router = () => {
   return (
     <BrowserRouter>
       <UserProvider key="UserProvider" value={dispatch}>
-        <Routes>
-          <Route path="/" expect element={<FormStep1 />} />
-          <Route path="/step2" element={<FormStep2 />} />
-          <Route path="/step3" element={<FormStep3 />} />
-        </Routes>
+        <ClientProvider key="UserProvider" value={dispatch}>
+          <Routes>
+            <Route path="/" expect element={<FormStep1 />} />
+            <Route path="/step2" element={<FormStep2 />} />
+            <Route path="/step3" element={<FormStep3 />} />
+            <Route path="/clientes" element={<Clientes />} />
+          </Routes>
+        </ClientProvider>
       </UserProvider>
       <Routes>
-        <Route path="/clientes" element={<Clientes />} />
+        <ClientProvider>
+          <Route path="/clientes" element={<Clientes />} />
+        </ClientProvider>
       </Routes>
     </BrowserRouter>
   );
