@@ -8,8 +8,8 @@ const Navbar = ({ show }) => {
       <img src={logo} width="80px" alt="logo" />
       <ul>
         <li>
-          <a href="/Clientes">
-            <MdGroups width="80px"/>
+          <a href="/clientes">
+            <MdGroups width="80px" />
             Clientes
           </a>
         </li>
