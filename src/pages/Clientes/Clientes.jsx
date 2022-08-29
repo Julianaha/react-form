@@ -2,14 +2,15 @@ import { useContext } from "react";
 import { ClientContext } from "../../contexts/ClientsContext";
 import Table from "react-bootstrap/Table";
 import "bootstrap/dist/css/bootstrap.min.css";
+import style from "./Clientes.module.css"
 
 export default function Clientes() {
   const [clients, clientDispatch] = useContext(ClientContext);
 
   return (
     <>
-      <p></p>
-      <Table striped bordered hover responsive="lg">
+      <h3 className={style.clientes}>Clientes</h3>
+      <Table striped bordered hover responsive="lg" className={style.table}>
         <thead>
           <tr>
             <th>Nome</th>
