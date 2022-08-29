@@ -1,76 +1,81 @@
-import React from "react";
-import { useContext } from "react";
+import { useContext, React } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserActions, UserContext } from "../../contexts/FormContext";
 import styles from "./FormStep1.module.css";
+import Button from "react-bootstrap/Button";
+import Col from "react-bootstrap/Col";
+import Form from "react-bootstrap/Form";
+import Row from "react-bootstrap/Row";
 
 export default function FormStep1() {
   const navigateTo = useNavigate();
-  const [user, dispatch] = useContext(UserContext)
-  console.log({user})
-
+  const [user, dispatch] = useContext(UserContext);
+  console.log({ user });
 
   const handleNextStep = () => {
     navigateTo("/step2");
   };
 
   return (
-    <form className={styles.form1}>
-      <fieldset className={styles.field1}>
-        <legend>Cadastro</legend>
-        <div className={styles.container}>
-          <div className={styles.formGroup}>
-            <label htmlFor="aligned-name">Nome:</label>
-            <input
+    <>
+      <div className={styles.section}>
+        <h3> Cadastro</h3>
+      </div>
+      <Form className={styles.form1} as={Col} md="12">
+        <Row className="mb-3">
+          <Form.Group as={Col} md="6" className="mb-3">
+            <Form.Label>Nome</Form.Label>
+            <Form.Control
+              required
+              autoFocus
               type="text"
-              id="aligned-name"
-              className={styles.input}
               value={user.name}
               onChange={(e) => dispatch(UserActions.setName(e.target.value))}
-              placeholder="Digite seu nome"
+              placeholder="Digite seu nome aqui"
             />
-          </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="aligned-lastname">Sobrenome:</label>
-            <input
+          </Form.Group>
+          <Form.Group as={Col} md="6">
+            <Form.Label>Sobrenome</Form.Label>
+            <Form.Control
+              required
               type="text"
-              id="aligned-lastname"
-              className={styles.input}
               value={user.lastname}
-              onChange={(e) => dispatch(UserActions.setLastName(e.target.value))}
-              placeholder="Digite seu sobrenome"
+              onChange={(e) =>
+                dispatch(UserActions.setLastName(e.target.value))
+              }
+              placeholder="Digite seu sobrenome aqui"
             />
-          </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="aligned-email">E-mail:</label>
-            <input
+          </Form.Group>
+        </Row>
+        <Row className="mb-3">
+          <Form.Group as={Col} md="6" className="mb-3">
+            <Form.Label>E-mail</Form.Label>
+            <Form.Control
+              required
               type="email"
-              id="aligned-email"
-              className={styles.input}
               value={user.email}
               onChange={(e) => dispatch(UserActions.setEmail(e.target.value))}
               placeholder="exemplo@email.com"
             />
-          </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="aligned-phone">Telefone:</label>
-            <input
+          </Form.Group>
+          <Form.Group as={Col} md="6">
+            <Form.Label>Telefone</Form.Label>
+            <Form.Control
               type="tel"
-              id="aligned-phone"
-              className={styles.input}
               value={user.phone}
               onChange={(e) => dispatch(UserActions.setPhone(e.target.value))}
-              placeholder="00 12343-2345"
+              placeholder="99-99999-9999"
+              pattern="[0-9]{2}-[0-9]{5}-[0-9]{4}"
+              required
             />
-          </div>
-        </div>
-
-        <div className="">
-          <button type="submit" className="" onClick={handleNextStep} >
+          </Form.Group>
+        </Row>
+        <Col className={styles.button}>
+          <Button type="submit" className={styles.btn} onClick={handleNextStep}>
             Próximo
-          </button>
-        </div>
-      </fieldset>
-    </form>
+          </Button>
+        </Col>
+      </Form>
+    </>
   );
 }

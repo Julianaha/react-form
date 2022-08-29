@@ -1,52 +1,32 @@
+.section {
+  font-family: "Roboto", sans-serif;
+  margin-top: 10%;
+  text-align: center;
+}
+
 .form2 {
-  width: 50%;
-  margin: 0 auto;
-}
-
-.field2 {
-  width: 90%;
-}
-
-.container2 {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
   align-items: center;
-  gap: 10px;
-  padding: 10px;
+  display: flex;
+  font-family: "Roboto", sans-serif;
+  flex-direction: column;
+  margin-top: 3em;
 }
 
-.formGroup2 {
-  padding: 10px;
-}
-
-.adress {
+.button {
   display: flex;
   flex-direction: row;
+  gap: 10px;
+  justify-content: flex-end;
 }
 
-@media screen and (max-width: 375px) {
-  .main {
-    height: 50vh;
-  }
+.btn {
+  background-color: #21262d !important;
+  color: #c9d1d9 !important;
+}
+
+@media screen and (max-width: 576px) {
   .form2 {
-    width: 50%;
-    margin: 0 auto;
-  }
-
-  .field2 {
-    width: 70%;
-    height: 50vh;
-    margin: 0 auto;
-  }
-
-  .container2 {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .adress {
-    display: flex;
-    flex-direction: column;
+    font-family: "Roboto", sans-serif;
+    display: block;
   }
 }

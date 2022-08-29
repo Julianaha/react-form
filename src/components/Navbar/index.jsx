@@ -1,11 +1,10 @@
 import "./Navbar.css";
-import logo from "../../assets/logo.png";
 import { MdPersonAdd, MdGroups } from "react-icons/md";
 
 const Navbar = ({ show }) => {
   return (
     <div className={show ? "sidenav && active" : "sidenav"}>
-      <img src={logo} width="80px" alt="logo" />
+      <h4 className="menu">Menu</h4>
       <ul>
         <li>
           <a href="/clientes">

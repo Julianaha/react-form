@@ -1,5 +1,5 @@
+import "./Header.css";
 import Navbar from "../Navbar";
-import "./Header.css"
 import { useState } from "react";
 import { GiHamburgerMenu } from "@react-icons/all-files/gi/GiHamburgerMenu";
 
