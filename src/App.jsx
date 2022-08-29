@@ -1,9 +1,16 @@
-import './App.css'
+import "./style/App.css";
+import Header from "./components/Header";
+import { Router } from "./router";
 
 function App() {
   return (
-   <h1>Hello</h1> 
-  )
+    <>
+      <Header />
+      <div className="main">
+        <Router />
+      </div>
+    </>
+  );
 }
 
-export default App
+export default App;
