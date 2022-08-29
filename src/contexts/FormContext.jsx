@@ -2,6 +2,7 @@ import { createContext } from "react";
 
 export const initialData = {
   name: "",
+  lastname: "",
   email: "",
   phone: "",
   cep: "",
@@ -12,11 +13,9 @@ export const initialData = {
   money: "",
 };
 
-// Context
 export const UserContext = createContext(initialData);
 export const UserProvider = UserContext.Provider;
 
-//Reducer
 const SET_NAME = "SET_NAME";
 const SET_LASTNAME = "SET_LASTNAME";
 const SET_EMAIL = "SET_EMAIL";
@@ -137,10 +136,3 @@ export const UserReducer = (state, action) => {
       return state;
   }
 };
-
-// Provider
-// export const FormProvider = ({ children }) => {
-//   const [state, dispatch] = useReducer(formReducer, initialData);
-//   const value = { state, dispatch };
-//   return <FormContext.Provider value={value}>{children}</FormContext.Provider>;
-// };
