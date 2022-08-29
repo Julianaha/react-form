@@ -1,11 +1,10 @@
 header {
-  padding: 30px;
-  background: #99c2d9;
-  height: 40px;
+  padding: 16px;
+  background: #161b22;
 }
 
 header svg {
   font-size: 40px;
-  color: #3d5a80;
+  color: #f0f6fc;
   cursor: pointer;
 }
