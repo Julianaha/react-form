@@ -1,14 +1,25 @@
 import styles from "./FormStep3.module.css";
 import { useContext } from "react";
 import { UserActions, UserContext } from "../../contexts/FormContext";
+import { ClientActions, ClientContext } from "../../contexts/ClientsContext";
+import { useNavigate } from "react-router-dom";
 
 
 export default function FormStep3() {
+  const navigate = useNavigate();
   const [user, dispatch] = useContext(UserContext)
+  const [_clients, clientDispatch] = useContext(ClientContext)
   console.log({user})
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    clientDispatch(ClientActions.setAddClient(user))
+    navigate("/clientes")
+
+  }
+
   return (
-    <form className={styles.form3}>
+    <form className={styles.form3} onSubmit={handleSubmit}>
       <fieldset className={styles.field3}>
         <legend>Cadastro</legend>
         <div className={styles.container3}>
