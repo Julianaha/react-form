@@ -3,70 +3,73 @@ import { useContext } from "react";
 import { UserActions, UserContext } from "../../contexts/FormContext";
 import { ClientActions, ClientContext } from "../../contexts/ClientsContext";
 import { useNavigate } from "react-router-dom";
-
+import Col from "react-bootstrap/Col";
+import Form from "react-bootstrap/Form";
+import Row from "react-bootstrap/Row";
+import FormGroup from "react-bootstrap/esm/FormGroup";
+import Button from "react-bootstrap/esm/Button";
 
 export default function FormStep3() {
   const navigate = useNavigate();
-  const [user, dispatch] = useContext(UserContext)
-  const [_clients, clientDispatch] = useContext(ClientContext)
-  console.log({user})
+  const [user, dispatch] = useContext(UserContext);
+  const [_clients, clientDispatch] = useContext(ClientContext);
+  console.log({ user });
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    clientDispatch(ClientActions.setAddClient(user))
-    navigate("/clientes")
-
-  }
+    e.preventDefault();
+    clientDispatch(ClientActions.setAddClient(user));
+    navigate("/clientes");
+  };
 
   return (
-    <form className={styles.form3} onSubmit={handleSubmit}>
-      <fieldset className={styles.field3}>
-        <legend>Cadastro</legend>
-        <div className={styles.container3}>
-          <div className={styles.formGroup3}>
-            <label htmlFor="date">Data de Nascimento:</label>
-            <input
-              type="date"
-              id="date"
-              className={styles.input}
-              value={user.birthdate}
-              onChange={(e) => dispatch(UserActions.setBirthDate(e.target.value))}
-              placeholder=""
-            />
-          </div>
-          <div className={styles.formGroup3}>
-            <label htmlFor="cpf">CPF:</label>
-            <input
+    <>
+      <div className={styles.section}>
+        <h3> Cadastro</h3>
+      </div>
+      <Form className={styles.form3} onSubmit={handleSubmit}>
+        <Row className="mb-3">
+          <Form.Group as={Col} md="4" className="mb-3">
+            <Form.Label>CPF</Form.Label>
+            <Form.Control
               type="text"
-              id="cpf"
-              className={styles.input}
+              autoFocus
               value={user.cpf}
               onChange={(e) => dispatch(UserActions.setCpf(e.target.value))}
-              placeholder="000-000-000-00"
+              placeholder="455.564.000-00"
+              required
             />
-          </div>
-          <div className={styles.formGroup3}>
-            <label htmlFor="money">Renda Mensal:</label>
-            <input
+          </Form.Group>
+          <Form.Group as={Col} md="4" className="mb-3">
+            <Form.Label>Data de Nascimento</Form.Label>
+            <Form.Control
+              type="date"
+              value={user.birthdate}
+              onChange={(e) =>
+                dispatch(UserActions.setBirthDate(e.target.value))
+              }
+              required
+            />
+          </Form.Group>
+          <Form.Group as={Col} md="4" className="mb-3">
+            <Form.Label>Renda Mensal</Form.Label>
+            <Form.Control
               type="text"
-              id="money"
-              className={styles.input}
               value={user.money}
               onChange={(e) => dispatch(UserActions.setMoney(e.target.value))}
-              placeholder="00,00"
+              placeholder="R$"
+              required
             />
-          </div>
-        </div>
-
-        <div className="">
-        <button type="submit" className="">
+          </Form.Group>
+        </Row>
+        <div className={styles.button}>
+          <Button className={styles.btn} type="submit">
             Voltar
-          </button>
-          <button type="submit" className="">
-            Enviar
-          </button>
+          </Button>
+          <Button className={styles.btn} type="submit">
+            Salvar
+          </Button>
         </div>
-      </fieldset>
-    </form>
+      </Form>
+    </>
   );
 }
