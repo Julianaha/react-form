@@ -2,68 +2,76 @@ import styles from "./FormStep2.module.css";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserActions, UserContext } from "../../contexts/FormContext";
-
+import Button from "react-bootstrap/Button";
+import Col from "react-bootstrap/Col";
+import Form from "react-bootstrap/Form";
 
 export default function FormStep2() {
   const navigateTo = useNavigate();
-  const [user, dispatch] = useContext(UserContext)
-  console.log({user})
+  const [user, dispatch] = useContext(UserContext);
+  console.log({ user });
 
   const handleNextStep = () => {
     navigateTo("/step3");
   };
 
   return (
-    <form className={styles.form2}>
-      <fieldset className={styles.field2}>
-        <legend>Cadastro</legend>
-        <div className={styles.container2}>
-          <div className={styles.formGroup2}>
-            <label htmlFor="cep">CEP:</label>
-            <input
-              type="text"
-              id="cep"
-              className={styles.inputCep}
-              value={user.cep}
-              onChange={(e) => dispatch(UserActions.setCep(e.target.value))}
-              placeholder="00000-0000"
-            />
-          </div>
-          <div className={styles.adress}>
-            <div className={styles.formGroup2}>
-              <label htmlFor="adress1">Endereço 1:</label>
-              <input
-                type="text"
-                id="adress1"
-                className={styles.input1}
-                value={user.adress1}
-              onChange={(e) => dispatch(UserActions.setAdress1(e.target.value))}
-                placeholder="Digite seu endereço"
-              />
-            </div>
-            <div className={styles.formGroup2}>
-              <label htmlFor="adress2">Endereço 2:</label>
-              <input
-                type="text"
-                id="adress2"
-                className={styles.input2}
-                value={user.adress2}
-              onChange={(e) => dispatch(UserActions.setAdress2(e.target.value))}
-                placeholder="Digite um segundo endereço"
-              />
-            </div>
-          </div>
-        </div>
+    <>
+      <div className={styles.section}>
+        <h3> Cadastro</h3>
+      </div>
 
-        <div className="">
-          <button type="submit" className="">
+      <Form className={styles.form2}>
+        <Form.Group className="mb-3" as={Col} md="6" controlId="formGridEmail">
+          <Form.Label>CEP</Form.Label>
+          <Form.Control
+            type="text"
+            autoFocus
+            value={user.cep}
+            onChange={(e) => dispatch(UserActions.setCep(e.target.value))}
+            placeholder="00000-000"
+          />
+        </Form.Group>
+
+        <Form.Group
+          className="mb-3"
+          as={Col}
+          md="6"
+          controlId="formGridAddress1"
+        >
+          <Form.Label>Endereço 1</Form.Label>
+          <Form.Control
+            type="text"
+            value={user.adress1}
+            onChange={(e) => dispatch(UserActions.setAdress1(e.target.value))}
+            placeholder="Digite aqui seu endereço"
+          />
+        </Form.Group>
+
+        <Form.Group
+          className="mb-3"
+          as={Col}
+          md="6"
+          controlId="formGridAddress2"
+        >
+          <Form.Label>Endereço 2</Form.Label>
+          <Form.Control
+            type="text"
+            value={user.adress2}
+            onChange={(e) => dispatch(UserActions.setAdress2(e.target.value))}
+            placeholder="Segunda opção de endereço"
+          />
+        </Form.Group>
+
+        <div className={styles.button}>
+          <Button className={styles.btn} type="submit">
             Voltar
-          </button>
-          <button type="submit" className="" onClick={handleNextStep}>
+          </Button>
+          <Button className={styles.btn} type="submit" onClick={handleNextStep}>
             Próximo
-          </button>
+          </Button>
         </div>
-      </fieldset>
-    </form>
+      </Form>
+    </>
   );
 }
