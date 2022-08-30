@@ -1,6 +1,6 @@
 import styles from "./FormStep2.module.css";
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { UserActions, UserContext } from "../../contexts/FormContext";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
@@ -12,7 +12,11 @@ export default function FormStep2() {
   console.log({ user });
 
   const handleNextStep = () => {
-    navigateTo("/step3");
+    if ((user.cep !== "") & (user.adress1 !== "")) {
+      navigateTo("/step3");
+    } else {
+      alert("Preencha todos os campos");
+    }
   };
 
   return (
@@ -65,7 +69,7 @@ export default function FormStep2() {
 
         <div className={styles.button}>
           <Button className={styles.btn} type="submit">
-            Voltar
+            <Link to="/">Voltar</Link>
           </Button>
           <Button className={styles.btn} type="submit" onClick={handleNextStep}>
             Próximo

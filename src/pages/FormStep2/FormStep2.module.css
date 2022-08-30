@@ -24,6 +24,11 @@
   color: #c9d1d9 !important;
 }
 
+a, Link {
+  color: currentColor !important;
+  text-decoration: none !important;
+}
+
 @media screen and (max-width: 576px) {
   .form2 {
     font-family: "Roboto", sans-serif;

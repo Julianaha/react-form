@@ -2,7 +2,7 @@ import styles from "./FormStep3.module.css";
 import { useContext } from "react";
 import { UserActions, UserContext } from "../../contexts/FormContext";
 import { ClientActions, ClientContext } from "../../contexts/ClientsContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
@@ -63,7 +63,7 @@ export default function FormStep3() {
         </Row>
         <div className={styles.button}>
           <Button className={styles.btn} type="submit">
-            Voltar
+          <Link to="/step2">Voltar</Link>
           </Button>
           <Button className={styles.btn} type="submit">
             Salvar

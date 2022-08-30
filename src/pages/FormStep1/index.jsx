@@ -13,7 +13,11 @@ export default function FormStep1() {
   console.log({ user });
 
   const handleNextStep = () => {
-    navigateTo("/step2");
+    if (user.name !== "") {
+      navigateTo("/step2");
+    }else {
+      alert('Preencha todos os campos')
+    }
   };
 
   return (
